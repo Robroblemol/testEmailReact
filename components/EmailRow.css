@@ -1,4 +1,9 @@
-.email-date{
+.email-date,
+.email-from,
+.email-subject,
+
+
+.email-row{
     overflow: hidden;
 }
 

@@ -1,11 +1,11 @@
+.email-row{
+    overflow: hidden;
+}
 .email-date,
 .email-from,
 .email-subject,
 
 
-.email-row{
-    overflow: hidden;
-}
 
 .email-body{
     text-overflow: ellipsis;

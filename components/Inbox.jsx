@@ -1,27 +1,23 @@
 import React, {Component} from 'react'
-import EMAILS from '../MOCK_DATA.json'
+import { Link }  from 'react-router-dom'
 
 import EmailRow from './EmailRow'
 import EmailRead from './EmailRead'
 
 export default class Inbox extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            emails: EMAILS,
-        }
-    }
+    
 
 
     render(){
         return (
         <div className="app-container">
             <h1>Inbox</h1>
-            <EmailRead email={this.state.emails[0]}/>
-            <p>Vi havas {this.state.emails.length} emailoj </p>
+            <p>Vi havas {this.props.emails.length} emailoj </p>
             <div id = "all-emails">
-                {this.state.emails.map((email, index) =>{
-                    return <EmailRow key = {index} email = {email}/>
+                {this.props.emails.map((email, index) =>{
+                    return <Link key = {index} to={`/read/${email.id}`} >
+                        <EmailRow  email = {email}/>
+                    </Link> 
                 })}
             </div>
         </div>

@@ -1,13 +1,36 @@
-import React, {Component} from 'react'
-import Inbox from './Inbox';
+import React, {Component, Fragment} from 'react'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import '../style.css';
+
+import Inbox from './Inbox'
+import EmailRead from './EmailRead'
+
+import EMAILS from '../MOCK_DATA.json'
+import '../style.css'
 
 export default class App extends Component{
+
+    constructor(props){
+        super(props)
+        this.state = {
+            emails: EMAILS,
+        }
+    }
+
     render(){
         return (
         <div className = "#app-container">
-            <Inbox />
+            <Router>
+                <Fragment>
+                    <Route exact path="/" component = {() => (
+                            <Inbox emails= {this.state.emails}/>
+                        
+                        )} />
+                    <Route exact path="/read/:id" component = {() => (
+                        <EmailRead emails  = {this.state.emails} />
+                        )} />
+                </Fragment>
+            </Router>
         </div>
         )
         

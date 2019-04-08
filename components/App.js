@@ -6,7 +6,7 @@ import Inbox from './Inbox'
 import EmailRead from './EmailRead'
 
 import EMAILS from '../MOCK_DATA.json'
-import '../style.css'
+import Nav from './Nav';
 
 export default class App extends Component{
 
@@ -22,6 +22,7 @@ export default class App extends Component{
         <div className = "#app-container">
             <Router>
                 <Fragment>
+                    <Nav />
                     <Route exact path="/" component = {() => (
                             <Inbox emails= {this.state.emails}/>
                         
